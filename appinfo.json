@@ -1,0 +1,26 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Ryan Catalani",
+    "longName": "Midnight Milkshake Countdown",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/midnight milkshake icon.png",
+                "menuIcon": true,
+                "name": "MM_LOGO",
+                "type": "png"
+            }
+        ]
+    },
+    "shortName": "Milkshake Countdown",
+    "uuid": "0005ee25-08d9-45f5-a58c-89db5888922d",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
