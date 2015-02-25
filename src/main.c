@@ -9,34 +9,36 @@ static void update_time() {
   struct tm *tick_time = localtime(&temp);
 
   static char buffer[] = "Your milkshake will hopefully be coming in a short while.";
-		
-	int hour = tick_time->tm_hour;
-	int mins = tick_time->tm_min;
-	
-	if (hour >= 12 && hour < 23) {
-      int hh_left = 24 - hour;
-      char hours_text[6];
-      hh_left == 1 ? strncpy(hours_text, "hour", sizeof("hour")) : strncpy(hours_text, "hours", sizeof("hours"));
-      snprintf(buffer, 33, "%d %s to midnight milkshakes.", hh_left, hours_text);
-	} else if (hour >= 23) {
-      int mm_left = 60 - mins;
-      char mins_text[5];
-      mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
-      snprintf(buffer, 37, "Only %d %s to midnight milkshakes!", mm_left, mins_text);
-	} else if (hour == 0) {
-      int mm_left = (120 - ((hour * 60) + mins)) % 60;
-      char mins_text[5];
-      mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
-      snprintf(buffer, 50, "You have 1 hour, %d %s to get your milkshake.", mm_left, mins_text);
-	} else if (hour == 1) {
-      int mm_left = (120 - ((hour * 60) + mins)) % 60;
-      char mins_text[5];
-      mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
-      snprintf(buffer, 40, "You have %d %s to get your milkshake!", mm_left, mins_text);
-	} else {
-      snprintf(buffer, 38, "I hope you got your milkshake by now.");
-	}
-	
+
+  int hour = tick_time->tm_hour;
+  int mins = tick_time->tm_min;
+
+  if (hour >= 6 && hour < 12) {
+    snprintf(buffer, 31, "It's too early for milkshakes.");
+  } else if (hour >= 12 && hour < 23) {
+    int hh_left = 24 - hour;
+    char hours_text[6];
+    hh_left == 1 ? strncpy(hours_text, "hour", sizeof("hour")) : strncpy(hours_text, "hours", sizeof("hours"));
+    snprintf(buffer, 33, "%d %s to midnight milkshakes.", hh_left, hours_text);
+  } else if (hour >= 23) {
+    int mm_left = 60 - mins;
+    char mins_text[5];
+    mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
+    snprintf(buffer, 37, "Only %d %s to midnight milkshakes!", mm_left, mins_text);
+  } else if (hour == 0) {
+    int mm_left = (120 - ((hour * 60) + mins)) % 60;
+    char mins_text[5];
+    mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
+    snprintf(buffer, 50, "You have 1 hour, %d %s to get your milkshake.", mm_left, mins_text);
+  } else if (hour == 1) {
+    int mm_left = (120 - ((hour * 60) + mins)) % 60;
+    char mins_text[5];
+    mm_left == 1 ? strncpy(mins_text, "min", sizeof("min")) : strncpy(mins_text, "mins", sizeof("mins"));
+    snprintf(buffer, 40, "You have %d %s to get your milkshake!", mm_left, mins_text);
+  } else {
+    snprintf(buffer, 38, "I hope you got your milkshake by now.");
+  }
+
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, buffer);
 }

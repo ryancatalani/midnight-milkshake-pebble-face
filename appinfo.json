@@ -16,10 +16,10 @@
             }
         ]
     },
-    "shortName": "Milkshake Countdown",
+    "shortName": "Milkshakes",
     "uuid": "0005ee25-08d9-45f5-a58c-89db5888922d",
     "versionCode": 1,
-    "versionLabel": "1.0",
+    "versionLabel": "1.1",
     "watchapp": {
         "watchface": true
     }
